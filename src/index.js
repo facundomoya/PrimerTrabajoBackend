@@ -2,6 +2,7 @@ import express from "express"
 import morgan from "morgan"
 import cors from "cors"
 import path from "path"
+import router from "./routes/producto.routes"
 
 //instanciar express
 const app = express()
@@ -24,12 +25,5 @@ app.use(express.urlencoded({extended:true}))//este si recibe un parametro, ese p
 app.use(express.static(path.join(__dirname,"../public")))//quiero que express use un middleware static, lo que devolves es un archivo estatico
 //cuando escribo el dominio localhost:4000 o el dominio que me den, se den ver index.html 
 
-//rutas (ruta de prueba) req(request) es la consulta del frontend y res(response) es la respuesta del backend
-app.get("/",(req,res)=>{//localhost:4000
-    res.send("HOLA ESTO ES UNA PRUEBA DESDE EL BACKEND")
-}) //una ruta para cuando alguien me haga una peticion get
-
-//borrar producto (no se puede probar desde el navegador)
-app.delete("/borrarproducto",(req,res)=>{//localhost:4000/borrarproductos
-    res.send("ALGUIEN QUIERE BORRAR")
-}) //una ruta para cuando alguien me haga una peticion get
+//cuando usar las rutas
+app.use("/apicafeteria",router)
