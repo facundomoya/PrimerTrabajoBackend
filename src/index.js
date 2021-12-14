@@ -3,6 +3,7 @@ import morgan from "morgan"
 import cors from "cors"
 import path from "path"
 import router from "./routes/producto.routes"
+import "./database" //importa todo el archivo database.js
 
 //instanciar express
 const app = express()
@@ -26,4 +27,5 @@ app.use(express.static(path.join(__dirname,"../public")))//quiero que express us
 //cuando escribo el dominio localhost:4000 o el dominio que me den, se den ver index.html 
 
 //cuando usar las rutas
+//el host es apicafeteria
 app.use("/apicafeteria",router)
