@@ -1,3 +1,4 @@
+import Producto from "../models/producto"
 //la logica de las rutas
 export const productoCtrl={}
 
